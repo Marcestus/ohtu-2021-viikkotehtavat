@@ -1,5 +1,8 @@
 package ohtu.verkkokauppa;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Viitegeneraattori implements Viitegeneraattori_Interface {
 
     private static Viitegeneraattori instanssi;
@@ -16,6 +19,7 @@ public class Viitegeneraattori implements Viitegeneraattori_Interface {
     
     private int seuraava;
     
+    @Autowired
     public Viitegeneraattori(){
         seuraava = 1;    
     }
