@@ -11,6 +11,9 @@ public class Nollaa extends Komento {
 
     @Override
     public void suorita() {
+        
+        this.tulosEnnenKomentoa = sovellus.tulos();
+        
         sovellus.nollaa();
         
         syotekentta.setText("");
@@ -26,7 +29,10 @@ public class Nollaa extends Komento {
 
     @Override
     public void peru() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        syotekentta.setText("");
+        tuloskentta.setText("" + this.tulosEnnenKomentoa);
+        
+        sovellus.setTulos(this.tulosEnnenKomentoa);
     }
     
 }

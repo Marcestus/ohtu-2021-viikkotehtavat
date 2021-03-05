@@ -11,6 +11,9 @@ public class Erotus extends Komento {
 
     @Override
     public void suorita() {
+        
+        this.tulosEnnenKomentoa = sovellus.tulos();
+        
         try {
             sovellus.miinus(Integer.parseInt(syotekentta.getText()));
         } catch (Exception e) {
@@ -30,7 +33,10 @@ public class Erotus extends Komento {
 
     @Override
     public void peru() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        syotekentta.setText("");
+        tuloskentta.setText("" + this.tulosEnnenKomentoa);
+        
+        sovellus.setTulos(this.tulosEnnenKomentoa);
     }
     
 }

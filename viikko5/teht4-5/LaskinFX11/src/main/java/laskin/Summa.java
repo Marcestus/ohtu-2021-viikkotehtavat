@@ -4,13 +4,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class Summa extends Komento {
-
+    
     public Summa(TextField tuloskentta, TextField syotekentta, Button nollaa, Button undo, Sovelluslogiikka sovellus) {
         super(tuloskentta, syotekentta, nollaa, undo, sovellus);
     }
     
     @Override
     public void suorita() {
+        
+        this.tulosEnnenKomentoa = sovellus.tulos();
+        
         try {
             sovellus.plus(Integer.parseInt(syotekentta.getText()));
         } catch (Exception e) {
@@ -30,7 +33,10 @@ public class Summa extends Komento {
 
     @Override
     public void peru() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        syotekentta.setText("");
+        tuloskentta.setText("" + this.tulosEnnenKomentoa);
+        
+        sovellus.setTulos(this.tulosEnnenKomentoa);
     }
     
 }
