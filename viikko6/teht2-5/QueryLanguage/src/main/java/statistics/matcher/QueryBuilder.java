@@ -18,14 +18,18 @@ public class QueryBuilder {
     }
 
     public QueryBuilder hasAtLeast(int value, String category) {
-        this.matcher = new HasAtLeast(value, category);
+        this.matcher = new And(this.matcher, new HasAtLeast(value, category));
         return this;
     }
     
     public QueryBuilder hasFewerThan(int value, String category) {
-        this.matcher = new HasFewerThan(value, category);
+        this.matcher = new And(this.matcher, new HasFewerThan(value, category));
         return this;
     }
     
+    public QueryBuilder oneOf(Matcher... matchers) {
+        this.matcher = new Or(matchers);
+        return this;
+    }
     
 }
